@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+body {
+  /*background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;*/
+
+  /*atalho (short hand) para escrever todas as informações de um só vez (o COVER precisa de uma barra antes dele para que ele cubra toda a tela)*/
+  background: var(--bg-url) no-repeat top center/cover;
+  font-family: "Inter", sans-serif;
+}
+
+body* {
+  font-family: "Inter", sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+#container {
+  height: 712px;
+  width: 360px;
+  /*margin-right: auto;
+  margin-left: auto;*/
+  /*isso pode ser resumido de uma vez só com uma propriedade que altere de uma vez só a parte de cima e a de baixo (que não serão aplicadas por conta de regras de CSS), e dos lados*/
+  margin: auto;
+  text-align: center;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+/*profile*/
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/*switch*/
+
+#switch {
+  margin-bottom: 24px;
+  width: 64px;
+  position: relative;
+
+  margin: 4px auto;
+  margin-bottom: 24px;
+}
+
+#switch :hover {
+  cursor: pointer;
+
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 1px solid var(--stroke-color-dark-mode);
+  background: var(--surface-color-dark-mode);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#switch button {
+  height: 32px;
+  width: 32px;
+  left: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--switch);
+  position: absolute;
+  z-index: 1;
+
+  transform: translatey(-50%);
+  top: 50%;
+
+  animation: slide-back 0.3s;
+}
+
+.light #switch button {
+  animation: slide-in 0.3s forwards;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--icons-hover);
+}
+
+/*variaveis*/
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --surface-color-dark-mode: rgba(255, 255, 255, 0.1);
+  --stroke-color-dark-mode: rgba(255, 255, 255, 0.5);
+  --border-button: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(255, 255, 255, 0.5);
+  --icons-hover: rgba(255, 255, 255, 0.2);
+  --switch: white url(./assets/moon-stars.svg) no-repeat center;
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --surface-color-dark-mode: rgba(0, 0, 0, 0.1);
+  --stroke-color-dark-mode: rgba(0, 0, 0, 0.5);
+  --border-button: rgba(0, 0, 0, 0.5);
+  --border-hover: black;
+  --icons-hover: rgba(0, 0, 0, 0.1);
+  --switch: white url(./assets/sun.svg) no-repeat center;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center;
+  padding: 16px 24px;
+
+  background: var(--surface-color-dark-mode);
+  border-radius: 8px;
+  border: 1px solid var(--stroke-color-dark-mode);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+ul li a:hover {
+  background: var(--background-hover);
+  border: 1.5px solid var(--border-hover);
+}
+
+/*div incons*/
+#socialIcons {
+  padding: 24px 0;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  font-size: 24px;
+}
+#socialIcons a {
+  display: flex;
+  padding: 16px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+/*pseudo-hover dos icons*/
+#socialIcons a:hover {
+  background-color: var(--icons-hover);
+}
+
+footer {
+  font-size: 14px;
+}
+
+/*media queries*/
+
+@media (min-width: 700px) {
+  :root{
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light{
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/*animation*/
+
+@keyframes slide-in{
+  from{ 
+    left: 0;
+  }
+
+  to{
+    left: 50%;
+  }
+}
+
+@keyframes slide-back{
+  from{
+    left: 50%;
+  }
+
+  to{
+    left: 0;
+  }
+}
